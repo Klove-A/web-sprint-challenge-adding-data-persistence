@@ -1,7 +1,9 @@
 const db = require("../../data/dbConfig");
 
 async function getTasks() {
-  const tasks = await db("tasks");
+  const tasks = await db("tasks as t")
+    .join("projects as p", "t.project_id", "p.project_id")
+    .select("t.*", "p.project_name", "p.project_description");
 
   return tasks.map((task) => {
     return {
