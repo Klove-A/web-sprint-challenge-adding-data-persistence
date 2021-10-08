@@ -1,3 +1,4 @@
+const { json } = require("express");
 const db = require("../../data/dbConfig");
 
 async function getProjects() {
@@ -15,42 +16,12 @@ function getProject() {
   return db("projects");
 }
 
-// function createProject(project) {
-//   return db("projects")
-//     .insert(project)
-//     .then(([project_id]) => {
-//       return db("projects").where("project_id", project_id).first();
-//     });
-// }
-
-// async function createProject(project) {
-//   const [project_id] = await db("projects").insert(project);
-//   const newProject = getProject(project_id)
-//     .where("project_id", project_id)
-//     .first();
-
-//   return newProject.map((project) => {
-//     return {
-//       ...project,
-//       project_completed: project.project_completed === 1,
-//     };
-//   });
-// }
-
 async function createProject(project) {
   const [project_id] = await db("projects").insert(project);
-  const newProject = getProjects()
 
-  // return newProject.filter((project) => {
-  //   return project_id > 1
-  // })
+  const newProject = await getProject().where("project_id", project_id).first();
 
-  newProject.filter(checkId)
-
-  function checkId(id) {
-    return id >= project.project_id;
-  }
-    
+  return { ...newProject, project_completed: project.project_completed === 1 };
 }
 
 module.exports = {
