@@ -1,7 +1,7 @@
 const db = require("../../data/dbConfig");
 
 function getProjects() {
-  res.json("inside projectModel");
+  console.log("inside projectModel");
 }
 
 module.exports = {
