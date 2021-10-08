@@ -74,9 +74,28 @@ const tasks = [
   },
 ];
 
+const project_resources = [
+  {
+    project_id: 1,
+    resource_id: 1,
+  },
+  {
+    project_id: 1,
+    resource_id: 2,
+  },
+  {
+    project_id: 2,
+    resource_id: 3,
+  },
+  {
+    project_id: 3,
+    resource_id: 4,
+  },
+];
+
 exports.seed = async function (knex) {
   await knex("projects").insert(projects);
   await knex("resources").insert(resources);
   await knex("tasks").insert(tasks);
-  // await knex("project_resources").insert(project_resources);
+  await knex("project_resources").insert(project_resources);
 };
