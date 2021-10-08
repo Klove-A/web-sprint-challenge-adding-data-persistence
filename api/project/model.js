@@ -12,8 +12,17 @@ async function getProjects() {
   });
 }
 
-function createProject() {
-  return console.log("post project");
+// function createProject(project) {
+//   return db("projects")
+//     .insert(project)
+//     .then(([project_id]) => {
+//       return db("projects").where("project_id", project_id).first();
+//     });
+// }
+
+async function createProject(project) {
+  const [project_id] = await db("projects").insert(project);
+  return getprojects().where({ project_id }).first();
 }
 
 module.exports = {

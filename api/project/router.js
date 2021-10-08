@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  Project.createProject(req)
+  Project.createProject(req.body)
     .then((newProject) => {
       res.status(201).json(newProject);
     })
