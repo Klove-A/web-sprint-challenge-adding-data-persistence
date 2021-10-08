@@ -9,6 +9,14 @@ router.get("/", (req, res, next) => {
     .catch(next);
 });
 
+router.post("/", (req, res, next) => {
+  Project.createProject(req)
+    .then((newProject) => {
+      res.status(201).json(newProject);
+    })
+    .catch(next);
+});
+
 // router.get("/", (req, res, next) => {
 //   res.json("inside projectRouter");
 // })
