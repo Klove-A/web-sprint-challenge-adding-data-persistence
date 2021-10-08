@@ -1,7 +1,7 @@
 const db = require("../../data/dbConfig");
 
 function getResources() {
-  res.json("inside resourceModel");
+  return db("resources");
 }
 
 module.exports = {

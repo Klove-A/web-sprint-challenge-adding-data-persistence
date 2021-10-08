@@ -2,7 +2,11 @@ const router = require("express").Router();
 const Resource = require("./model");
 
 router.get("/", (req, res, next) => {
-  res.json("inside resourceRouter");
+  Resource.getResources()
+    .then((resources) => {
+      res.json(resources);
+    })
+    .catch(next);
 });
 
 module.exports = router;
