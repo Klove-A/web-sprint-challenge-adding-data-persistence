@@ -7,7 +7,7 @@ const projects = [
   {
     project_name: "project_2",
     project_description: "2nd project",
-    project_completed: false,
+    project_completed: true,
   },
   {
     project_name: "project_3",
@@ -35,9 +35,48 @@ const resources = [
   },
 ];
 
+const tasks = [
+  {
+    task_description: "task_1",
+    task_notes: "project_1's 1st task",
+    task_completed: false,
+    project_id: 1,
+  },
+  {
+    task_description: "task_2",
+    task_notes: "project_1's 2nd task",
+    task_completed: false,
+    project_id: 1,
+  },
+  {
+    task_description: "task_3",
+    task_notes: "project_1's 3rd task",
+    task_completed: false,
+    project_id: 1,
+  },
+  {
+    task_description: "task_4",
+    task_notes: "project_2's 1st task",
+    task_completed: true,
+    project_id: 2,
+  },
+  {
+    task_description: "task_5",
+    task_notes: "project_3's 1st task",
+    task_completed: false,
+    project_id: 3,
+  },
+  {
+    task_description: "task_6",
+    task_notes: "project_3's 2nd task",
+    task_completed: false,
+    project_id: 3,
+  },
+];
+
 exports.seed = async function (knex) {
   await knex("projects").insert(projects);
   await knex("resources").insert(resources);
-  // await knex("tasks").insert(tasks);
+  await knex("tasks").insert(tasks);
   // await knex("project_resources").insert(project_resources);
 };
