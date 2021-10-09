@@ -14,7 +14,9 @@ async function getTasks() {
 }
 
 function getTask() {
-  return db("tasks");
+  return db("tasks as t")
+    .join("projects as p", "t.project_id", "p.project_id")
+    .select("t.*", "p.project_name", "p.project_description");
 }
 
 async function createTask(task) {
