@@ -93,6 +93,7 @@ const project_resources = [
   },
 ];
 
+
 exports.seed = async function (knex) {
   await knex("projects").insert(projects);
   await knex("resources").insert(resources);

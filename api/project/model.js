@@ -1,4 +1,3 @@
-const { json } = require("express");
 const db = require("../../data/dbConfig");
 
 async function getProjects() {
@@ -23,6 +22,7 @@ async function createProject(project) {
 
   return { ...newProject, project_completed: project.project_completed === 1 };
 }
+
 
 module.exports = {
   getProjects,

@@ -9,6 +9,7 @@ async function createResource(resource) {
   return getResources().where({ resource_id }).first();
 }
 
+
 module.exports = {
   getResources,
   createResource,

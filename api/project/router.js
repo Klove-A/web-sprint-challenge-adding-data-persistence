@@ -17,8 +17,5 @@ router.post("/", (req, res, next) => {
     .catch(next);
 });
 
-// router.get("/", (req, res, next) => {
-//   res.json("inside projectRouter");
-// })
 
 module.exports = router;
